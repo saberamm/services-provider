@@ -29,7 +29,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
             if (!isValid(e))
                 return null;
         } catch (NotValidModelException n) {
-            System.out.println("Error while saving model: " + n.getMessage());
+            System.err.println("Error while saving model: " + n.getMessage());
             return null;
         }
         try {
@@ -40,7 +40,8 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
             if (repository.getEntityManager().getTransaction().isActive()) {
                 repository.getEntityManager().getTransaction().rollback();
             }
-            throw new RuntimeException("Error while saving model: " + ex.getMessage(), ex);
+            System.err.println("Error while saving model: " + ex.getMessage());
+            return null;
         }
         return e;
     }
@@ -52,7 +53,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
             if (!isValid(e))
                 return null;
         } catch (NotValidModelException n) {
-            System.out.println("Error while updating model: " + n.getMessage());
+            System.err.println("Error while updating model: " + n.getMessage());
             return null;
         }
         try {
@@ -63,7 +64,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
             if (repository.getEntityManager().getTransaction().isActive()) {
                 repository.getEntityManager().getTransaction().rollback();
             }
-            throw new RuntimeException("Error while updating model: " + ex.getMessage(), ex);
+            System.err.println("Error while updating model: " + ex.getMessage());
         }
         return e;
     }
@@ -78,7 +79,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
             if (repository.getEntityManager().getTransaction().isActive()) {
                 repository.getEntityManager().getTransaction().rollback();
             }
-            throw new RuntimeException("Error while deleting model: " + ex.getMessage(), ex);
+            System.err.println("Error while deleting model: " + ex.getMessage());
         }
     }
 
@@ -88,10 +89,12 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
         try {
             e = repository.findById(id);
         } catch (Exception ex) {
-            throw new RuntimeException("Error while finding model by ID: " + ex.getMessage(), ex);
+            System.err.println("Error while finding model by ID: " + ex.getMessage());
+            return null;
         }
         if (e == null) {
-            throw new EntityNotFoundException("model is not exist");
+            System.err.println("Error while finding model by ID: model is not exist");
+            return null;
         } else return e;
     }
 
@@ -100,7 +103,8 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
         try {
             return repository.findAll();
         } catch (Exception ex) {
-            throw new RuntimeException("Error while fetching models: " + ex.getMessage(), ex);
+            System.err.println("Error while fetching models: " + ex.getMessage());
+            return null;
         }
     }
 
@@ -109,7 +113,8 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
         try {
             return repository.isContainById(id);
         } catch (Exception ex) {
-            throw new RuntimeException("Error while checking if model exists: " + ex.getMessage(), ex);
+            System.err.println("Error while checking if model exists: " + ex.getMessage());
+            return false;
         }
     }
 
