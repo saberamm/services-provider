@@ -18,11 +18,21 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
 
     @Override
     public SimpleUser findUserByUsername(String username) {
-        return dtoMapper.userDtoMapper(repository.findUserByUsername(username));
+        try {
+            return dtoMapper.userDtoMapper(repository.findUserByUsername(username));
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
     }
 
     @Override
     public User userAuthentication(String user_name, String password) {
-        return repository.userAuthentication(user_name, password);
+        try {
+            return repository.userAuthentication(user_name, password);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
     }
 }
