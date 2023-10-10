@@ -25,8 +25,13 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
 
     @Override
     public E save(E e) {
-        if (!isValid(e))
+        try {
+            if (!isValid(e))
+                return null;
+        } catch (NotValidModelException n) {
+            System.out.println("Error while saving model: " + n.getMessage());
             return null;
+        }
         try {
             repository.getEntityManager().getTransaction().begin();
             repository.save(e);
@@ -43,8 +48,13 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
 
     @Override
     public E update(E e) {
-        if (!isValid(e))
+        try {
+            if (!isValid(e))
+                return null;
+        } catch (NotValidModelException n) {
+            System.out.println("Error while updating model: " + n.getMessage());
             return null;
+        }
         try {
             repository.getEntityManager().getTransaction().begin();
             repository.update(e);
@@ -104,7 +114,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
     }
 
     @Override
-    public boolean isValid(E e) {
+    public boolean isValid(E e) throws NotValidModelException {
         Set<ConstraintViolation<E>> violations = validator.validate(e);
         if (!violations.isEmpty()) {
             for (ConstraintViolation<E> p : violations)
