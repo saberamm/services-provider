@@ -1,6 +1,7 @@
 package com.services_provider.base.service;
 
 import com.services_provider.base.model.BaseModel;
+import com.services_provider.exception.NotValidModelException;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,5 +19,5 @@ public interface BaseService<E extends BaseModel<ID>, ID extends Serializable> {
 
     boolean isContainById(ID id);
 
-    boolean isValid(E e);
+    boolean isValid(E e) throws NotValidModelException;
 }

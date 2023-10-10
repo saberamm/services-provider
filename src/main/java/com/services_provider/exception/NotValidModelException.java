@@ -1,6 +1,6 @@
 package com.services_provider.exception;
 
-public class NotValidModelException extends RuntimeException{
+public class NotValidModelException extends Exception{
     public NotValidModelException(String message) {
         super(message);
     }

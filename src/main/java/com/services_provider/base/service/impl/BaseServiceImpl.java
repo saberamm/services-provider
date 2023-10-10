@@ -88,14 +88,12 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
         E e;
         try {
             e = repository.findById(id);
+            if (e == null) throw new EntityNotFoundException("model does not exist");
         } catch (Exception ex) {
             System.err.println("Error while finding model by ID: " + ex.getMessage());
             return null;
         }
-        if (e == null) {
-            System.err.println("Error while finding model by ID: model is not exist");
-            return null;
-        } else return e;
+        return e;
     }
 
     @Override
