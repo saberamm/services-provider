@@ -17,9 +17,19 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
     }
 
     @Override
-    public SimpleUser findUserByUsername(String username) {
+    public User findUserByUsername(String username) {
         try {
-            return dtoMapper.userDtoMapper(repository.findUserByUsername(username));
+            return repository.findUserByUsername(username);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public SimpleUser findDtoUserByUsername(String username) {
+        try {
+            return dtoMapper.userDtoMapper(findUserByUsername(username));
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
             return null;

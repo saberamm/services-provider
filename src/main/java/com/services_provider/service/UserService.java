@@ -6,7 +6,9 @@ import com.services_provider.model.dtomodel.SimpleUser;
 
 public interface UserService extends BaseService<User, Long> {
 
-    SimpleUser findUserByUsername(String username);
+    User findUserByUsername(String username);
+
+    SimpleUser findDtoUserByUsername(String username);
 
     User userAuthentication(String user_name, String password);
 }
