@@ -21,7 +21,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
         try {
             return repository.findUserByUsername(username);
         } catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            System.out.println(ex.getMessage());
             return null;
         }
     }
@@ -31,7 +31,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
         try {
             return dtoMapper.userDtoMapper(findUserByUsername(username));
         } catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            System.out.println(ex.getMessage());
             return null;
         }
     }
@@ -41,7 +41,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
         try {
             return repository.userAuthentication(user_name, password);
         } catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            System.out.println(ex.getMessage());
             return null;
         }
     }

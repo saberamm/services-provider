@@ -34,7 +34,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
             if (repository.getEntityManager().getTransaction().isActive()) {
                 repository.getEntityManager().getTransaction().rollback();
             }
-            System.err.println("Error while saving model: " + ex.getMessage());
+            System.out.println("Error while saving model: " + ex.getMessage());
             return null;
         }
         return e;
@@ -52,7 +52,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
             if (repository.getEntityManager().getTransaction().isActive()) {
                 repository.getEntityManager().getTransaction().rollback();
             }
-            System.err.println("Error while updating model: " + ex.getMessage());
+            System.out.println("Error while updating model: " + ex.getMessage());
         }
         return e;
     }
@@ -67,7 +67,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
             if (repository.getEntityManager().getTransaction().isActive()) {
                 repository.getEntityManager().getTransaction().rollback();
             }
-            System.err.println("Error while deleting model: " + ex.getMessage());
+            System.out.println("Error while deleting model: " + ex.getMessage());
         }
     }
 
@@ -78,7 +78,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
             e = repository.findById(id);
             if (e == null) throw new EntityNotFoundException("model does not exist");
         } catch (Exception ex) {
-            System.err.println("Error while finding model by ID: " + ex.getMessage());
+            System.out.println("Error while finding model by ID: " + ex.getMessage());
             return null;
         }
         return e;
@@ -89,7 +89,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
         try {
             return repository.findAll();
         } catch (Exception ex) {
-            System.err.println("Error while fetching models: " + ex.getMessage());
+            System.out.println("Error while fetching models: " + ex.getMessage());
             return null;
         }
     }
@@ -99,7 +99,7 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
         try {
             return repository.isContainById(id);
         } catch (Exception ex) {
-            System.err.println("Error while checking if model exists: " + ex.getMessage());
+            System.out.println("Error while checking if model exists: " + ex.getMessage());
             return false;
         }
     }

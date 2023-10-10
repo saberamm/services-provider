@@ -1,6 +1,7 @@
 package com.services_provider.model;
 
 import com.services_provider.base.model.BaseModel;
+import com.services_provider.validation.annotation.Password;
 import jakarta.persistence.*;
 
 import javax.validation.constraints.NotNull;
@@ -18,7 +19,7 @@ public class User extends BaseModel<Long> {
     private String lastName;
     @Column(unique = true)
     private String username;
-    @Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
+    @Password
     @NotNull(message = "Password cannot be null")
     private String password;
     @NotNull(message = "BirthDate cannot be null")
