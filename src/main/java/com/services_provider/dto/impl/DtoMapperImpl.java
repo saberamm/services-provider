@@ -16,6 +16,7 @@ public class DtoMapperImpl implements DtoMapper {
         simpleUser.setUserName(user.getUserName());
         simpleUser.setBirthDate(user.getBirthDate());
         simpleUser.setEmail(user.getEmail());
+        simpleUser.setSignUpDate(user.getSignUpDate());
 
         return simpleUser;
     }

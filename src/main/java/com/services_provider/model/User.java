@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -25,6 +26,7 @@ public class User extends BaseModel<Long> {
     private String password;
     @NotNull(message = "BirthDate cannot be null")
     private LocalDate birthDate;
+    private final LocalDateTime signUpDate = LocalDateTime.now();
     @Column(unique = true)
     @NotNull(message = "email cannot be null")
     @Email(regexp = "(?i)^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$")
@@ -40,6 +42,10 @@ public class User extends BaseModel<Long> {
         this.password = password;
         this.birthDate = birthDate;
         this.email = email;
+    }
+
+    public LocalDateTime getSignUpDate() {
+        return signUpDate;
     }
 
     public @NotNull(message = "Name can not be null") String getFirstName() {

@@ -1,6 +1,7 @@
 package com.services_provider.model.dtomodel;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class SimpleUser {
@@ -10,8 +11,17 @@ public class SimpleUser {
     private String userName;
     private LocalDate birthDate;
     private String email;
+    private LocalDateTime signUpDate;
 
     public SimpleUser() {
+    }
+
+    public LocalDateTime getSignUpDate() {
+        return signUpDate;
+    }
+
+    public void setSignUpDate(LocalDateTime signUpDate) {
+        this.signUpDate = signUpDate;
     }
 
     public String getFirstName() {
@@ -59,12 +69,12 @@ public class SimpleUser {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SimpleUser that = (SimpleUser) o;
-        return Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(userName, that.userName) && Objects.equals(birthDate, that.birthDate) && Objects.equals(email, that.email);
+        return Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(userName, that.userName) && Objects.equals(birthDate, that.birthDate) && Objects.equals(email, that.email) && Objects.equals(signUpDate, that.signUpDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, userName, birthDate, email);
+        return Objects.hash(firstName, lastName, userName, birthDate, email, signUpDate);
     }
 
     @Override
@@ -75,6 +85,7 @@ public class SimpleUser {
                 ", userName='" + userName + '\'' +
                 ", birthDate=" + birthDate +
                 ", email='" + email + '\'' +
+                ", signUpDate=" + signUpDate +
                 '}';
     }
 }
