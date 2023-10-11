@@ -5,36 +5,37 @@ import java.util.Objects;
 
 public class SimpleUser {
 
-    private String firstname;
-    private String lastname;
-    private String username;
+    private String firstName;
+    private String lastName;
+    private String userName;
     private LocalDate birthDate;
+    private String email;
 
     public SimpleUser() {
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public LocalDate getBirthDate() {
@@ -45,26 +46,35 @@ public class SimpleUser {
         this.birthDate = birthDate;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SimpleUser that = (SimpleUser) o;
-        return Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname) && Objects.equals(username, that.username) && Objects.equals(birthDate, that.birthDate);
+        return Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(userName, that.userName) && Objects.equals(birthDate, that.birthDate) && Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstname, lastname, username, birthDate);
+        return Objects.hash(firstName, lastName, userName, birthDate, email);
     }
 
     @Override
     public String toString() {
         return "SimpleUser{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", username='" + username + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
                 ", birthDate=" + birthDate +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

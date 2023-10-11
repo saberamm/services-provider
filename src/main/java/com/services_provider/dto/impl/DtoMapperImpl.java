@@ -11,10 +11,11 @@ public class DtoMapperImpl implements DtoMapper {
             return null;
         }
         SimpleUser simpleUser = new SimpleUser();
-        simpleUser.setFirstname(user.getFirstName());
-        simpleUser.setLastname(user.getLastName());
-        simpleUser.setUsername(user.getUsername());
+        simpleUser.setFirstName(user.getFirstName());
+        simpleUser.setLastName(user.getLastName());
+        simpleUser.setUserName(user.getUserName());
         simpleUser.setBirthDate(user.getBirthDate());
+        simpleUser.setEmail(user.getEmail());
 
         return simpleUser;
     }

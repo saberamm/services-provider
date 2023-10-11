@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        User user = new User("aa", "aa", "aa", "yyOs1#222", LocalDate.of(2000, 2, 2));
-        System.out.println(ApplicationContext.getUserService().save(user));
+        User user = new User("aa", "aa", "aa", "yyOs1#222", LocalDate.of(2000, 2, 2),"123");
+        System.out.println(user);
     }
 }
