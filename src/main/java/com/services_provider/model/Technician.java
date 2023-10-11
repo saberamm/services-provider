@@ -32,4 +32,140 @@ public class Technician extends User {
     private List<SubService> subServiceList;
     @OneToMany(mappedBy = "technician")
     private List<Offer> offerList;
+
+    public Technician(TechnicianStatus technicianStatus, Byte[] technicianPhoto, Double technicianCredit, String phoneNumber, String nationalCode, String aboutMe, List<ViewPoint> viewPointList, List<SubService> subServiceList, List<Offer> offerList) {
+        this.technicianStatus = technicianStatus;
+        this.technicianPhoto = technicianPhoto;
+        this.technicianCredit = technicianCredit;
+        this.phoneNumber = phoneNumber;
+        this.nationalCode = nationalCode;
+        this.aboutMe = aboutMe;
+        this.viewPointList = viewPointList;
+        this.subServiceList = subServiceList;
+        this.offerList = offerList;
+    }
+
+    public Technician(String firstName, String lastName, String userName, String password, LocalDate birthDate, String email, TechnicianStatus technicianStatus, Byte[] technicianPhoto, Double technicianCredit, String phoneNumber, String nationalCode, String aboutMe, List<ViewPoint> viewPointList, List<SubService> subServiceList, List<Offer> offerList) {
+        super(firstName, lastName, userName, password, birthDate, email);
+        this.technicianStatus = technicianStatus;
+        this.technicianPhoto = technicianPhoto;
+        this.technicianCredit = technicianCredit;
+        this.phoneNumber = phoneNumber;
+        this.nationalCode = nationalCode;
+        this.aboutMe = aboutMe;
+        this.viewPointList = viewPointList;
+        this.subServiceList = subServiceList;
+        this.offerList = offerList;
+    }
+
+    public Technician() {
+    }
+
+    public TechnicianStatus getTechnicianStatus() {
+        return technicianStatus;
+    }
+
+    public void setTechnicianStatus(TechnicianStatus technicianStatus) {
+        this.technicianStatus = technicianStatus;
+    }
+
+    public Byte[] getTechnicianPhoto() {
+        return technicianPhoto;
+    }
+
+    public void setTechnicianPhoto(Byte[] technicianPhoto) {
+        this.technicianPhoto = technicianPhoto;
+    }
+
+    public Double getTechnicianCredit() {
+        return technicianCredit;
+    }
+
+    public void setTechnicianCredit(Double technicianCredit) {
+        this.technicianCredit = technicianCredit;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getNationalCode() {
+        return nationalCode;
+    }
+
+    public void setNationalCode(String nationalCode) {
+        this.nationalCode = nationalCode;
+    }
+
+    public String getAboutMe() {
+        return aboutMe;
+    }
+
+    public void setAboutMe(String aboutMe) {
+        this.aboutMe = aboutMe;
+    }
+
+    public List<ViewPoint> getViewPointList() {
+        return viewPointList;
+    }
+
+    public void setViewPointList(List<ViewPoint> viewPointList) {
+        this.viewPointList = viewPointList;
+    }
+
+    public List<SubService> getSubServiceList() {
+        return subServiceList;
+    }
+
+    public void setSubServiceList(List<SubService> subServiceList) {
+        this.subServiceList = subServiceList;
+    }
+
+    public List<Offer> getOfferList() {
+        return offerList;
+    }
+
+    public void setOfferList(List<Offer> offerList) {
+        this.offerList = offerList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Technician that = (Technician) o;
+        return technicianStatus == that.technicianStatus && Arrays.equals(technicianPhoto, that.technicianPhoto) && Objects.equals(technicianCredit, that.technicianCredit) && Objects.equals(phoneNumber, that.phoneNumber) && Objects.equals(nationalCode, that.nationalCode) && Objects.equals(aboutMe, that.aboutMe) && Objects.equals(viewPointList, that.viewPointList) && Objects.equals(subServiceList, that.subServiceList) && Objects.equals(offerList, that.offerList);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(super.hashCode(), technicianStatus, technicianCredit, phoneNumber, nationalCode, aboutMe, viewPointList, subServiceList, offerList);
+        result = 31 * result + Arrays.hashCode(technicianPhoto);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Technician{" +
+                "id=" + getId() +
+                ", technicianStatus=" + technicianStatus +
+                ", technicianPhoto=" + Arrays.toString(technicianPhoto) +
+                ", technicianCredit=" + technicianCredit +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", nationalCode='" + nationalCode + '\'' +
+                ", aboutMe='" + aboutMe + '\'' +
+                ", signUpDate=" + getSignUpDate() +
+                ", firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", userName='" + getUserName() + '\'' +
+                ", password='" + getPassword() + '\'' +
+                ", birthDate=" + getBirthDate() +
+                ", email='" + getEmail() + '\'' +
+                '}';
+    }
 }

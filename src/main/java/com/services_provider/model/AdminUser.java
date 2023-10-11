@@ -25,11 +25,6 @@ public class AdminUser extends User {
     }
 
     public AdminUser() {
-
-    }
-
-    public static AdminUserBuilder builder() {
-        return new AdminUserBuilder();
     }
 
     public AdminPosition getPosition() {
@@ -67,25 +62,5 @@ public class AdminUser extends User {
                 ", birthDate=" + getBirthDate() +
                 ", email='" + getEmail() + '\'' +
                 '}';
-    }
-
-    public static class AdminUserBuilder {
-        private @NotNull AdminPosition position;
-
-        AdminUserBuilder() {
-        }
-
-        public AdminUserBuilder position(@NotNull AdminPosition position) {
-            this.position = position;
-            return this;
-        }
-
-        public AdminUser build() {
-            return new AdminUser(position);
-        }
-
-        public String toString() {
-            return "AdminUser.AdminUserBuilder(position=" + this.position + ")";
-        }
     }
 }
