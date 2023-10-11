@@ -11,7 +11,7 @@ import java.time.format.FormatStyle;
 public class Main {
     public static void main(String[] args) {
         User user = new User("aa", "aa", "aa", "yyOs1#222", LocalDate.of(2000, 2, 2), "123");
-        System.out.println(user);
+        ApplicationContext.getUserService().save(user);
         /*LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd' 'HH:mm");
         String formattedDateTime = now.format(formatter);
