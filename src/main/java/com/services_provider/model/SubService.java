@@ -21,15 +21,15 @@ public class SubService extends BaseModel<Long> {
     @OneToMany(mappedBy = "subService")
     private List<Order> orderList;
     @ManyToOne(cascade = CascadeType.ALL)
-    private Service service;
+    private GeneralService generalService;
 
-    public SubService(String subServiceName, Double basePrice, String description, List<Technician> technicianList, List<Order> orderList, Service service) {
+    public SubService(String subServiceName, Double basePrice, String description, List<Technician> technicianList, List<Order> orderList, GeneralService generalService) {
         this.subServiceName = subServiceName;
         this.basePrice = basePrice;
         this.description = description;
         this.technicianList = technicianList;
         this.orderList = orderList;
-        this.service = service;
+        this.generalService = generalService;
     }
 
     public SubService() {
@@ -75,12 +75,12 @@ public class SubService extends BaseModel<Long> {
         this.orderList = orderList;
     }
 
-    public Service getService() {
-        return service;
+    public GeneralService getGeneralService() {
+        return generalService;
     }
 
-    public void setService(Service service) {
-        this.service = service;
+    public void setGeneralService(GeneralService generalService) {
+        this.generalService = generalService;
     }
 
     @Override
@@ -88,12 +88,12 @@ public class SubService extends BaseModel<Long> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SubService that = (SubService) o;
-        return Objects.equals(subServiceName, that.subServiceName) && Objects.equals(basePrice, that.basePrice) && Objects.equals(description, that.description) && Objects.equals(technicianList, that.technicianList) && Objects.equals(orderList, that.orderList) && Objects.equals(service, that.service);
+        return Objects.equals(subServiceName, that.subServiceName) && Objects.equals(basePrice, that.basePrice) && Objects.equals(description, that.description) && Objects.equals(technicianList, that.technicianList) && Objects.equals(orderList, that.orderList) && Objects.equals(generalService, that.generalService);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subServiceName, basePrice, description, technicianList, orderList, service);
+        return Objects.hash(subServiceName, basePrice, description, technicianList, orderList, generalService);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class SubService extends BaseModel<Long> {
                 ", subServiceName='" + subServiceName + '\'' +
                 ", basePrice=" + basePrice +
                 ", description='" + description + '\'' +
-                ", service=" + service +
+                ", service=" + generalService +
                 '}';
     }
 }
