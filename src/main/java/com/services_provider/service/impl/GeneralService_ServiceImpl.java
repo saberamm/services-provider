@@ -8,27 +8,9 @@ import com.services_provider.service.*;
 
 public class GeneralService_ServiceImpl extends BaseServiceImpl<GeneralService, Long, GeneralServiceRepository> implements GeneralService_Service {
     public DtoMapper dtoMapper;
-    public ClientService clientService;
-    public OfferService offerService;
-    public OrderService orderService;
-    public SubService_Service subService_service;
-    public TechnicianService technicianService;
-    public UserService userService;
-    public ViewPointService viewPointService;
 
-    public GeneralService_ServiceImpl(GeneralServiceRepository repository, DtoMapper dtoMapper,
-                                      ClientService clientService, OfferService offerService,
-                                      OrderService orderService, SubService_Service subService_service,
-                                      TechnicianService technicianService, UserService userService,
-                                      ViewPointService viewPointService) {
+    public GeneralService_ServiceImpl(GeneralServiceRepository repository, DtoMapper dtoMapper) {
         super(repository);
         this.dtoMapper = dtoMapper;
-        this.clientService = clientService;
-        this.offerService = offerService;
-        this.orderService = orderService;
-        this.subService_service = subService_service;
-        this.technicianService = technicianService;
-        this.userService = userService;
-        this.viewPointService = viewPointService;
     }
 }
