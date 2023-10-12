@@ -10,21 +10,21 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-public class AdminUser extends User {
+public class Admin extends User {
     @NotNull
     @Enumerated(EnumType.STRING)
     private AdminPosition position;
 
-    public AdminUser(AdminPosition position) {
+    public Admin(AdminPosition position) {
         this.position = position;
     }
 
-    public AdminUser(String firstName, String lastName, String userName, String password, LocalDate birthDate, String email, AdminPosition position) {
+    public Admin(String firstName, String lastName, String userName, String password, LocalDate birthDate, String email, AdminPosition position) {
         super(firstName, lastName, userName, password, birthDate, email);
         this.position = position;
     }
 
-    public AdminUser() {
+    public Admin() {
     }
 
     public AdminPosition getPosition() {
@@ -40,8 +40,8 @@ public class AdminUser extends User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        AdminUser adminUser = (AdminUser) o;
-        return position == adminUser.position;
+        Admin admin = (Admin) o;
+        return position == admin.position;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class AdminUser extends User {
 
     @Override
     public String toString() {
-        return "AdminUser{" +
+        return "Admin{" +
                 "id=" + getId() +
                 ", position=" + position +
                 ", signUpDate=" + getSignUpDate() +
