@@ -5,6 +5,7 @@ import com.services_provider.model.enumeration.OrderStatus;
 import jakarta.persistence.*;
 
 import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -12,10 +13,12 @@ import java.util.Objects;
 @Entity
 @Table(name = "order_table")
 public class Order extends BaseModel<Long> {
+    @NotNull
     private Double orderPrice;
     private String orderDescription;
     @FutureOrPresent
     private LocalDateTime workTime;
+    @NotNull
     private String orderAddress;
     private OrderStatus orderStatus;
     @OneToMany(mappedBy = "order")
@@ -25,17 +28,23 @@ public class Order extends BaseModel<Long> {
     @ManyToOne(cascade = CascadeType.ALL)
     private SubService subService;
 
-    public Order(Double orderPrice, String orderDescription, LocalDateTime workTime, String orderAddress, OrderStatus orderStatus, List<Offer> offerList, Client client, SubService subService) {
+    public Order(Double orderPrice, String orderDescription, LocalDateTime workTime, String orderAddress, OrderStatus orderStatus, Client client, SubService subService) {
         this.orderPrice = orderPrice;
         this.orderDescription = orderDescription;
         this.workTime = workTime;
         this.orderAddress = orderAddress;
         this.orderStatus = orderStatus;
-        this.offerList = offerList;
         this.client = client;
         this.subService = subService;
     }
-
+    public Order(Double orderPrice, String orderDescription, LocalDateTime workTime, String orderAddress, Client client, SubService subService) {
+        this.orderPrice = orderPrice;
+        this.orderDescription = orderDescription;
+        this.workTime = workTime;
+        this.orderAddress = orderAddress;
+        this.client = client;
+        this.subService = subService;
+    }
     public Order() {
     }
 

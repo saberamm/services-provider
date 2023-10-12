@@ -23,12 +23,10 @@ public class SubService extends BaseModel<Long> {
     @ManyToOne(cascade = CascadeType.ALL)
     private GeneralService generalService;
 
-    public SubService(String subServiceName, Double basePrice, String description, List<Technician> technicianList, List<Order> orderList, GeneralService generalService) {
+    public SubService(String subServiceName, Double basePrice, String description, GeneralService generalService) {
         this.subServiceName = subServiceName;
         this.basePrice = basePrice;
         this.description = description;
-        this.technicianList = technicianList;
-        this.orderList = orderList;
         this.generalService = generalService;
     }
 

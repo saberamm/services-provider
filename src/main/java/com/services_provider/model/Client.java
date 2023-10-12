@@ -23,19 +23,17 @@ public class Client extends User{
     @OneToMany(mappedBy = "client")
     private List<Order> orderList;
 
-    public Client(Double clientCredit, String phoneNumber, String nationalCode, List<Order> orderList) {
+    public Client(Double clientCredit, String phoneNumber, String nationalCode) {
         this.clientCredit = clientCredit;
         this.phoneNumber = phoneNumber;
         this.nationalCode = nationalCode;
-        this.orderList = orderList;
     }
 
-    public Client(String firstName, String lastName, String userName, String password, LocalDate birthDate, String email, Double clientCredit, String phoneNumber, String nationalCode, List<Order> orderList) {
+    public Client(String firstName, String lastName, String userName, String password, LocalDate birthDate, String email, Double clientCredit, String phoneNumber, String nationalCode) {
         super(firstName, lastName, userName, password, birthDate, email);
         this.clientCredit = clientCredit;
         this.phoneNumber = phoneNumber;
         this.nationalCode = nationalCode;
-        this.orderList = orderList;
     }
 
     public Client() {

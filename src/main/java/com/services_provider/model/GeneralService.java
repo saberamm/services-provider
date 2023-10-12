@@ -5,19 +5,20 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class GeneralService extends BaseModel<Long> {
     @Column(unique = true)
+    @NotNull
     private String serviceName;
     @OneToMany(mappedBy = "generalService")
     private List<SubService> subServiceList;
 
-    public GeneralService(String serviceName, List<SubService> subServiceList) {
+    public GeneralService(String serviceName) {
         this.serviceName = serviceName;
-        this.subServiceList = subServiceList;
     }
 
     public GeneralService() {

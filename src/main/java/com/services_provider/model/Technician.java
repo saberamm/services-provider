@@ -15,10 +15,11 @@ public class Technician extends User {
     @NotNull
     @Enumerated(EnumType.STRING)
     private TechnicianStatus technicianStatus;
-    private Byte[] technicianPhoto;
+    private byte[] technicianPhoto;
     private Double technicianCredit;
     @Column(name = "phoneNumber")
     @NotNull
+    @Size(min = 11, max = 11, message = "phoneNumber  must have 11 digits")
     private String phoneNumber;
     @Column(name = "nationalCode")
     @NotNull(message = "nationalCode cannot be null")
@@ -33,19 +34,16 @@ public class Technician extends User {
     @OneToMany(mappedBy = "technician")
     private List<Offer> offerList;
 
-    public Technician(TechnicianStatus technicianStatus, Byte[] technicianPhoto, Double technicianCredit, String phoneNumber, String nationalCode, String aboutMe, List<ViewPoint> viewPointList, List<SubService> subServiceList, List<Offer> offerList) {
+    public Technician(TechnicianStatus technicianStatus, byte[] technicianPhoto, Double technicianCredit, String phoneNumber, String nationalCode, String aboutMe) {
         this.technicianStatus = technicianStatus;
         this.technicianPhoto = technicianPhoto;
         this.technicianCredit = technicianCredit;
         this.phoneNumber = phoneNumber;
         this.nationalCode = nationalCode;
         this.aboutMe = aboutMe;
-        this.viewPointList = viewPointList;
-        this.subServiceList = subServiceList;
-        this.offerList = offerList;
     }
 
-    public Technician(String firstName, String lastName, String userName, String password, LocalDate birthDate, String email, TechnicianStatus technicianStatus, Byte[] technicianPhoto, Double technicianCredit, String phoneNumber, String nationalCode, String aboutMe, List<ViewPoint> viewPointList, List<SubService> subServiceList, List<Offer> offerList) {
+    public Technician(String firstName, String lastName, String userName, String password, LocalDate birthDate, String email, TechnicianStatus technicianStatus, byte[] technicianPhoto, Double technicianCredit, String phoneNumber, String nationalCode, String aboutMe) {
         super(firstName, lastName, userName, password, birthDate, email);
         this.technicianStatus = technicianStatus;
         this.technicianPhoto = technicianPhoto;
@@ -53,9 +51,6 @@ public class Technician extends User {
         this.phoneNumber = phoneNumber;
         this.nationalCode = nationalCode;
         this.aboutMe = aboutMe;
-        this.viewPointList = viewPointList;
-        this.subServiceList = subServiceList;
-        this.offerList = offerList;
     }
 
     public Technician() {
@@ -69,11 +64,11 @@ public class Technician extends User {
         this.technicianStatus = technicianStatus;
     }
 
-    public Byte[] getTechnicianPhoto() {
+    public byte[] getTechnicianPhoto() {
         return technicianPhoto;
     }
 
-    public void setTechnicianPhoto(Byte[] technicianPhoto) {
+    public void setTechnicianPhoto(byte[] technicianPhoto) {
         this.technicianPhoto = technicianPhoto;
     }
 
@@ -154,7 +149,6 @@ public class Technician extends User {
         return "Technician{" +
                 "id=" + getId() +
                 ", technicianStatus=" + technicianStatus +
-                ", technicianPhoto=" + Arrays.toString(technicianPhoto) +
                 ", technicianCredit=" + technicianCredit +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", nationalCode='" + nationalCode + '\'' +
