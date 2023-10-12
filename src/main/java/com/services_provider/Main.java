@@ -33,7 +33,7 @@ public class Main {
 
         Technician technician = new Technician("rrr", "ttt", "tre", "wqw#2AAaaa",
                 LocalDate.of(2000, 4, 4), "asd@asd.com", TechnicianStatus.NEW,
-                image, 500D, "091033333333", "5555555555", "im good");
+                image, 500D, "09103333333", "5555555555", "im good");
 
 //        ApplicationContext.getUserService().save(user);
 //        ApplicationContext.getAdminService().save(admin);
@@ -76,9 +76,9 @@ public class Main {
 
         //----------------  sub general service -------------------//
 
-        SubService subService = new SubService("barghe sakhteamn", 100000D,
-                "baray tamir bargh", ApplicationContext.getGeneralService_Service().findById(1L));
-
+//        SubService subService = new SubService("barghe sakhteamn", 100000D,
+//                "baray tamir bargh", ApplicationContext.getGeneralService_Service().findById(1L));
+//
 //        ApplicationContext.getSubService_Service().save(subService);
 //
 //        SubService subService1 = ApplicationContext.getSubService_Service().findById(1L);
@@ -91,12 +91,12 @@ public class Main {
         //----------------  order service -------------------//
 
 
-        Order order = new Order(50000D, "qweqe",
-                LocalDateTime.of(2000, 5, 5, 15, 5, 5),
-                "khonamon", OrderStatus.WAITING_FOR_TECHNICIAN_OFFER,
-                ApplicationContext.getClientService().findById(3L),
-                ApplicationContext.getSubService_Service().findById(1L));
-
+//        Order order = new Order(50000D, "qweqe",
+//                LocalDateTime.of(2030, 5, 5, 15, 5, 5),
+//                "khonamon", OrderStatus.WAITING_FOR_TECHNICIAN_OFFER,
+//                ApplicationContext.getClientService().findById(3L),
+//                ApplicationContext.getSubService_Service().findById(1L));
+//
 //        ApplicationContext.getOrderService().save(order);
 
 //        Order order1 = ApplicationContext.getOrderService().findById(1L);
@@ -109,12 +109,13 @@ public class Main {
 
 
         //----------------  offer service -------------------//
-        Offer offer = new Offer(LocalDateTime.of(2000, 5, 5, 15, 5, 5)
-                , LocalDateTime.of(2000, 6, 5, 15, 5, 5),
-                80000D, "12 days",
-                ApplicationContext.getTechnicianService().findById(4L),
-                ApplicationContext.getOrderService().findById(1L));
 
+//        Offer offer = new Offer(LocalDateTime.of(2000, 5, 5, 15, 5, 5)
+//                , LocalDateTime.of(2000, 6, 5, 15, 5, 5),
+//                80000D, "12 days",
+//                ApplicationContext.getTechnicianService().findById(4L),
+//                ApplicationContext.getOrderService().findById(1L));
+//
 //        ApplicationContext.getOfferService().save(offer);
 
 //        Offer offer1 = ApplicationContext.getOfferService().findById(1L);
@@ -126,9 +127,9 @@ public class Main {
 
         //----------------  offer service -------------------//
 
-        ViewPoint viewPoint = new ViewPoint("awwwwli",4,
-                ApplicationContext.getTechnicianService().findById(4L));
-
+//        ViewPoint viewPoint = new ViewPoint("awwwwli",4,
+//                ApplicationContext.getTechnicianService().findById(4L));
+//
 //        ApplicationContext.getViewPointService().save(viewPoint);
 
 //        ViewPoint viewPoint1 = ApplicationContext.getViewPointService().findById(1L);
