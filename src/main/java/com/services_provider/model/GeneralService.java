@@ -9,18 +9,18 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Service extends BaseModel<Long> {
+public class GeneralService extends BaseModel<Long> {
     @Column(unique = true)
     private String serviceName;
-    @OneToMany(mappedBy = "service")
+    @OneToMany(mappedBy = "generalService")
     private List<SubService> subServiceList;
 
-    public Service(String serviceName, List<SubService> subServiceList) {
+    public GeneralService(String serviceName, List<SubService> subServiceList) {
         this.serviceName = serviceName;
         this.subServiceList = subServiceList;
     }
 
-    public Service() {
+    public GeneralService() {
     }
 
     public String getServiceName() {
@@ -43,8 +43,8 @@ public class Service extends BaseModel<Long> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Service service = (Service) o;
-        return Objects.equals(serviceName, service.serviceName) && Objects.equals(subServiceList, service.subServiceList);
+        GeneralService generalService = (GeneralService) o;
+        return Objects.equals(serviceName, generalService.serviceName) && Objects.equals(subServiceList, generalService.subServiceList);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Service extends BaseModel<Long> {
 
     @Override
     public String toString() {
-        return "Service{" +
+        return "generalService{" +
                 "id=" + getId() +
                 ", serviceName='" + serviceName + '\'' +
                 '}';
