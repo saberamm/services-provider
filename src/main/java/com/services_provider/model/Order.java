@@ -37,6 +37,24 @@ public class Order extends BaseModel<Long> {
         this.client = client;
         this.subService = subService;
     }
+
+    public Order(Double orderPrice, String orderDescription, LocalDateTime workTime, String orderAddress, OrderStatus orderStatus, SubService subService) {
+        this.orderPrice = orderPrice;
+        this.orderDescription = orderDescription;
+        this.workTime = workTime;
+        this.orderAddress = orderAddress;
+        this.orderStatus = orderStatus;
+        this.subService = subService;
+    }
+
+    public Order(Double orderPrice, String orderDescription, LocalDateTime workTime, String orderAddress, OrderStatus orderStatus) {
+        this.orderPrice = orderPrice;
+        this.orderDescription = orderDescription;
+        this.workTime = workTime;
+        this.orderAddress = orderAddress;
+        this.orderStatus = orderStatus;
+    }
+
     public Order(Double orderPrice, String orderDescription, LocalDateTime workTime, String orderAddress, Client client, SubService subService) {
         this.orderPrice = orderPrice;
         this.orderDescription = orderDescription;

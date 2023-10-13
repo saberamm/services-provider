@@ -19,7 +19,7 @@ public class SubService extends BaseModel<Long> {
     @ManyToMany
     @JoinTable(
             name = "technician_subservice",
-            joinColumns = @JoinColumn(name = "technician"),
+            joinColumns = @JoinColumn(name = "subservice_id"),
             inverseJoinColumns = @JoinColumn(name = "technician_id")
     )
     private List<Technician> technicianList;
