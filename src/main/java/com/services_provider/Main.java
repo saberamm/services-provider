@@ -186,6 +186,15 @@ public class Main {
 //        SubService subService3=ApplicationContext.getSubService_Service().findById(1L);
 //        ApplicationContext.getAdminService().addTechnicianToSubService(technician3,subService3);
 
+        //---------------- see all technicians by admin -------------------//
+
+//        System.out.println(ApplicationContext.getClientService().seeGeneralServicesByClient());
+//        System.out.println(ApplicationContext.getClientService().seeSubServicesByClient());
+//        Order order4=new Order(300000D,"salam",
+//                LocalDateTime.of(2032,8,8,18,18),"fff",
+//                OrderStatus.WAITING_FOR_TECHNICIAN_OFFER,ApplicationContext.getSubService_Service().findById(1L));
+//        Client client4=ApplicationContext.getClientService().findById(3L);
+//        ApplicationContext.getClientService().addOrderByClient(order4,client4);
 
     }
 }
