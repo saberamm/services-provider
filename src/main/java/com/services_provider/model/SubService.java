@@ -3,13 +3,18 @@ package com.services_provider.model;
 import com.services_provider.base.model.BaseModel;
 import jakarta.persistence.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class SubService extends BaseModel<Long> {
+    @NotNull
+    @Column(unique = true)
     private String subServiceName;
+    @NotNull
     private Double basePrice;
+    @NotNull
     private String description;
     @ManyToMany
     @JoinTable(
@@ -20,6 +25,7 @@ public class SubService extends BaseModel<Long> {
     private List<Technician> technicianList;
     @OneToMany(mappedBy = "subService")
     private List<Order> orderList;
+    @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
     private GeneralService generalService;
 

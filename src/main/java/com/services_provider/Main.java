@@ -84,6 +84,7 @@ public class Main {
 //        SubService subService1 = ApplicationContext.getSubService_Service().findById(1L);
 //
 //        subService1.setDescription("bargh sakhteaman ha");
+//        subService1.setBasePrice(8000D);
 //        ApplicationContext.getSubService_Service().update(subService1);
 //
 //        ApplicationContext.getSubService_Service().delete(subService1);
@@ -125,7 +126,7 @@ public class Main {
 
 //        ApplicationContext.getOfferService().delete(offer1);
 
-        //----------------  offer service -------------------//
+        //----------------  viewpoint service -------------------//
 
 //        ViewPoint viewPoint = new ViewPoint("awwwwli",4,
 //                ApplicationContext.getTechnicianService().findById(4L));
@@ -154,6 +155,11 @@ public class Main {
 //
 //        ApplicationContext.getAdminService().addSubServiceByAdmin(subService2);
 
+//        SubService subService2 = new SubService("barghe khodro", 200000D,
+//                "baray tamir khodro", ApplicationContext.getGeneralService_Service().findById(500L));
+//
+//        ApplicationContext.getAdminService().addSubServiceByAdmin(subService2);
+
         //---------------- delete and add technician by admin -------------------//
 
 //        Technician technician2 = new Technician("ooo", "ooo", "ooo", "wqw#2Aoooo",
@@ -163,6 +169,23 @@ public class Main {
 //        ApplicationContext.getAdminService().addTechnicianByAdmin(technician2);
 
 //        ApplicationContext.getAdminService().deleteTechnicianByAdmin("ooo");
+
+        //---------------- see all general services by admin -------------------//
+
+//        System.out.println(ApplicationContext.getAdminService().generalServicesListByAdmin());
+
+        //---------------- see all technicians by admin -------------------//
+
+//        System.out.println(ApplicationContext.getAdminService().seeTechnicianNotAcceptedByAdmin());
+//        Technician technician3 = ApplicationContext.getTechnicianService().findById(4L);
+//        technician3.setTechnicianStatus(TechnicianStatus.CONFIRMED);
+//        ApplicationContext.getTechnicianService().update(technician3);
+
+
+//        Technician technician3 = ApplicationContext.getTechnicianService().findById(4L);
+//        SubService subService3=ApplicationContext.getSubService_Service().findById(1L);
+//        ApplicationContext.getAdminService().addTechnicianToSubService(technician3,subService3);
+
 
     }
 }
