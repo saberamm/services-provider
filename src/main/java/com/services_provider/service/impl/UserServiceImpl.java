@@ -27,6 +27,18 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
     }
 
     @Override
+    public void changePassword(String userName, String password, String newPassword) {
+        try {
+            User user = userAuthentication(userName, password);
+            user.setPassword(newPassword);
+            update(user);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+
+    @Override
     public SimpleUser findDtoUserByUsername(String username) {
         try {
             return dtoMapper.userDtoMapper(findUserByUsername(username));
@@ -37,9 +49,9 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
     }
 
     @Override
-    public User userAuthentication(String user_name, String password) {
+    public User userAuthentication(String userName, String password) {
         try {
-            return repository.userAuthentication(user_name, password);
+            return repository.userAuthentication(userName, password);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             return null;

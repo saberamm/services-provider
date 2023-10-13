@@ -138,5 +138,31 @@ public class Main {
 //        ApplicationContext.getViewPointService().update(viewPoint1);
 
 //        ApplicationContext.getViewPointService().delete(viewPoint1);
+
+        //----------------  change password -------------------//
+
+//        ApplicationContext.getClientService().changePassword("asddsa", "1Q@eeeee", "5@rRaaaa");
+
+        //---------------- add general service and sub service by admin -------------------//
+
+//        GeneralService generalService2 = new GeneralService("khodro");
+//
+//        ApplicationContext.getAdminService().addGeneralServiceByAdmin(generalService2);
+//
+//        SubService subService2 = new SubService("barghe khodro", 200000D,
+//                "baray tamir khodro", ApplicationContext.getGeneralService_Service().findById(2L));
+//
+//        ApplicationContext.getAdminService().addSubServiceByAdmin(subService2);
+
+        //---------------- delete and add technician by admin -------------------//
+
+//        Technician technician2 = new Technician("ooo", "ooo", "ooo", "wqw#2Aoooo",
+//                LocalDate.of(2009, 4, 4), "asd@aoo.com", TechnicianStatus.NEW,
+//                image, 0D, "09103333333", "5555666666", "im good");
+//
+//        ApplicationContext.getAdminService().addTechnicianByAdmin(technician2);
+
+//        ApplicationContext.getAdminService().deleteTechnicianByAdmin("ooo");
+
     }
 }

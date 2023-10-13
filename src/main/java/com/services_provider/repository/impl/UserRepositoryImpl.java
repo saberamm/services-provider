@@ -20,7 +20,7 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<User, Long> implement
     @Override
     public User findUserByUsername(String username) {
         TypedQuery<User> query = entityManager.createQuery(
-                "SELECT u FROM User u WHERE u.username = :username", getEntityClass());
+                "SELECT u FROM User u WHERE u.userName = :username", getEntityClass());
         query.setParameter("username", username);
         return query.getSingleResult();
     }
@@ -28,7 +28,7 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<User, Long> implement
     @Override
     public User userAuthentication(String username, String password) {
         TypedQuery<User> query = entityManager.createQuery(
-                "SELECT u FROM User u WHERE u.username = :username AND u.password = :password", getEntityClass());
+                "SELECT u FROM User u WHERE u.userName = :username AND u.password = :password", getEntityClass());
         query.setParameter("username", username);
         query.setParameter("password", password);
         return query.getSingleResult();

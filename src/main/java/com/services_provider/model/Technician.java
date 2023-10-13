@@ -21,7 +21,7 @@ public class Technician extends User {
     @NotNull
     @Size(min = 11, max = 11, message = "phoneNumber  must have 11 digits")
     private String phoneNumber;
-    @Column(name = "nationalCode")
+    @Column(name = "nationalCode",unique = true)
     @NotNull(message = "nationalCode cannot be null")
     @Size(min = 10, max = 10, message = "national code  must have 10 digits")
     private String nationalCode;

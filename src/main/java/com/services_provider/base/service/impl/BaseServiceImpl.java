@@ -26,10 +26,11 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
     @Override
     public E save(E e) {
         try {
-            if (!isValid(e)) throw new NotValidModelException();
-            repository.getEntityManager().getTransaction().begin();
-            repository.save(e);
-            repository.getEntityManager().getTransaction().commit();
+            if (isValid(e)) {
+                repository.getEntityManager().getTransaction().begin();
+                repository.save(e);
+                repository.getEntityManager().getTransaction().commit();
+            }
         } catch (Exception ex) {
             if (repository.getEntityManager().getTransaction().isActive()) {
                 repository.getEntityManager().getTransaction().rollback();
@@ -44,10 +45,11 @@ public abstract class BaseServiceImpl<E extends BaseModel<ID>, ID extends Serial
     @Override
     public E update(E e) {
         try {
-            if (!isValid(e)) throw new NotValidModelException();
-            repository.getEntityManager().getTransaction().begin();
-            repository.update(e);
-            repository.getEntityManager().getTransaction().commit();
+            if (isValid(e)) {
+                repository.getEntityManager().getTransaction().begin();
+                repository.update(e);
+                repository.getEntityManager().getTransaction().commit();
+            }
         } catch (Exception ex) {
             if (repository.getEntityManager().getTransaction().isActive()) {
                 repository.getEntityManager().getTransaction().rollback();
